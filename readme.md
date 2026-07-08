@@ -6,7 +6,7 @@ Live at [flooded.nz](https://flooded.nz). `flooded.co.nz` redirects to it at the
 
 ## Hosting
 
-Hosted on **GitHub Pages**, deployed automatically on every push to `main` via [.github/workflows/pages.yml](.github/workflows/pages.yml). No manual deploy step, no separate cloud account.
+Hosted on **GitHub Pages**, deployed automatically via [.github/workflows/pages.yml](.github/workflows/pages.yml) whenever a push to `main` changes something under `site/`. No manual deploy step, no separate cloud account.
 
 ## Layout
 
@@ -24,6 +24,8 @@ site/                          the actual deployable page
 ## Making a change
 
 Edit the files under `site/`, commit, and push to `main`. GitHub Pages picks it up automatically within a minute or two.
+
+The deploy workflow only triggers on pushes that touch something under `site/` (see the `paths` filter in [pages.yml](.github/workflows/pages.yml)) — editing this readme or anything else outside `site/` won't kick off a deploy. Use the **Run workflow** button on the Actions tab (or `gh workflow run pages.yml`) if you ever need to force a redeploy without a `site/` change.
 
 ## Hosting decision
 
