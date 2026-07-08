@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--
+    Content-Security-Policy (meta form).
+
+    This duplicates the CSP in ../staticwebapp.config.json so the page is safe to
+    deploy to a static host with no custom-header support (e.g. GitHub Pages), not
+    just Azure Static Web Apps. Keep the two in sync when either changes.
+
+    Directives that only work as an HTTP response header — frame-ancestors,
+    X-Frame-Options, Permissions-Policy — CANNOT be expressed here; browsers ignore
+    them in a <meta> tag. That means on a host with no header support, this page
+    loses clickjacking protection (nothing stops flooded.nz itself being framed by
+    another site). Accepted risk for this page: it has no auth/session and no
+    privileged action beyond linking to an already-public Survey123 form, so being
+    framed by a third party has no real exploit value. See plan.md for the fuller
+    writeup. On Azure SWA, this tag and the header both apply and are intersected —
+    harmless duplication, not a conflict.
+
+    script-src uses a SHA-256 hash of the exact inline GTM bootstrap script below
+    instead of 'unsafe-inline', so injected/XSS scripts still can't run. If that
+    script's contents ever change, this hash must be recomputed or GTM will
+    silently stop loading (blocked by CSP, no visible error).
+  -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'sha256-bSFSFess6Vsf+b3rrd/ccbBFC/9p2cxI51BXAaKiKmg=' https://www.googletagmanager.com https://*.google-analytics.com; frame-src https://survey123.arcgis.com https://www.googletagmanager.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; style-src 'self' 'unsafe-inline'">
+
+  <!-- Google Tag Manager -->
+  <!-- Analytics account supplied by Aklc -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PZQ7G9S');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Social media meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property='og:title' content='Your Flood Experiences' />
+  <meta property='og:image' content='https://flooded.nz/media/23-PRO-0912_flooded_social_media_tile.jpg'>
+  <meta property='og:description'
+    content='Upload your photos, videos and help us make our communities more resilient to future flooding events.' />
+  <!-- End social media meta tags -->
+
+
+  <title>Flood Experiences</title>
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-PZQ7G9S height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <iframe src=https://survey123.arcgis.com/share/d804348006524990835aa02d8ebc62b6
+    allow="geolocation https://survey123.arcgis.com; camera https://survey123.arcgis.com"></iframe>
+</body>
+
+</html>

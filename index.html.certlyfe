@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flood Experiences</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <p>Dis is cert Lyfe at https://s3.console.aws.amazon.com/s3/buckets/flooded.nz</p>
+  <p>This page points no-whare—4 nowz</p>
+  <p>4 mo info—sam.brown@unitseven.co.nz or +64-21-800.019</p>
+</body>
+</html>

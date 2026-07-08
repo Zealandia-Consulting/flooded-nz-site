@@ -1,0 +1,12 @@
+{
+  "globalHeaders": {
+    "Content-Security-Policy": "default-src 'self'; script-src 'self' 'sha256-bSFSFess6Vsf+b3rrd/ccbBFC/9p2cxI51BXAaKiKmg=' https://www.googletagmanager.com https://*.google-analytics.com; frame-src https://survey123.arcgis.com https://www.googletagmanager.com; frame-ancestors 'self'; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; style-src 'self' 'unsafe-inline'",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Permissions-Policy": "microphone=(), usb=(), payment=()"
+  },
+  "navigationFallback": {
+    "rewrite": "/index.html"
+  }
+}
